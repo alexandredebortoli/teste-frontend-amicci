@@ -1,12 +1,4 @@
-import {
-  Box,
-  Card,
-  CardContent,
-  Container,
-  Grid,
-  Typography,
-} from "@mui/material";
-import WbSunnyIcon from "@mui/icons-material/WbSunny";
+import { Card, CardContent, Container, Grid, Typography } from "@mui/material";
 import WaterDropIcon from "@mui/icons-material/WaterDrop";
 import AirIcon from "@mui/icons-material/Air";
 import WbSunnyOutlinedIcon from "@mui/icons-material/WbSunnyOutlined";
