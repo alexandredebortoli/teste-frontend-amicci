@@ -1,13 +1,13 @@
 export interface WeatherInfo {
-  temperature: number;
-  temperatureMax: number;
-  temperatureMin: number;
-  humidity: number;
+  temperature: string;
+  temperatureMax: string;
+  temperatureMin: string;
+  humidity: string;
   description: string;
   city: string;
   country: string;
   iconType: "Rain" | "Clear" | "Clouds" | "Snow" | "Drizzle" | "Thunderstorm";
-  wind: number;
+  wind: string;
   sunrise: string;
   sunset: string;
   requestTime: Date;
