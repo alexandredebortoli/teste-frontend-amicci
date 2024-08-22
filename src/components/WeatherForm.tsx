@@ -15,6 +15,7 @@ import { handleError } from "../utils/errorHandling";
 import googleMapsService from "../services/googleMapsService";
 import openWeatherService from "../services/openWeatherService";
 import { WeatherInfo } from "../types/weather.interface";
+import geolocationService from "../services/geolocationService";
 
 interface WeatherFormProps {
   setWeather: (weather: WeatherInfo | null) => void;
@@ -44,7 +45,20 @@ export const WeatherForm: React.FC<WeatherFormProps> = ({ setWeather }) => {
     }
   };
 
-  const handleLocationClick = () => {};
+  const handleLocationClick = async () => {
+    setWeather(null);
+    setError(null);
+    try {
+      const coords = await geolocationService.fetchCurrentLocation();
+      const weatherData = await openWeatherService.fetchWeatherByCoordinates(
+        coords.latitude,
+        coords.longitude
+      );
+      setWeather(weatherData);
+    } catch (err) {
+      setError(handleError(err));
+    }
+  };
 
   return (
     <Container maxWidth="sm">
@@ -94,7 +108,6 @@ export const WeatherForm: React.FC<WeatherFormProps> = ({ setWeather }) => {
           </Grid>
           <Grid item xs={12} container alignItems="stretch">
             <Button
-              type="submit"
               variant="outlined"
               color="primary"
               className="whitespace-nowrap"
