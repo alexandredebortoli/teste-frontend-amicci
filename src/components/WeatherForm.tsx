@@ -61,7 +61,7 @@ export const WeatherForm: React.FC<WeatherFormProps> = ({ setWeather }) => {
   };
 
   return (
-    <Container maxWidth="sm">
+    <Container maxWidth="sm" data-testid="weather-form">
       <form onSubmit={handleSearchSubmit}>
         <Grid container spacing={2}>
           <Grid item xs={12} container alignItems="stretch">

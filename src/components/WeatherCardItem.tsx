@@ -2,19 +2,19 @@ import { Card, CardContent, Grid, Typography } from "@mui/material";
 import React from "react";
 import { SvgIconComponent } from "@mui/icons-material";
 
-interface WeatherCardProps {
+interface WeatherCardItemProps {
   icon: SvgIconComponent;
   title: string;
   value: string;
 }
 
-const WeatherCard: React.FC<WeatherCardProps> = ({
+const WeatherCardItem: React.FC<WeatherCardItemProps> = ({
   icon: Icon,
   title,
   value,
 }) => {
   return (
-    <Grid item xs={6} md={3}>
+    <Grid item xs={6} md={3} data-testid="weather-card-item">
       <Card variant="outlined">
         <CardContent>
           <Typography sx={{ fontSize: 14 }} color="text.secondary" gutterBottom>
@@ -29,4 +29,4 @@ const WeatherCard: React.FC<WeatherCardProps> = ({
   );
 };
 
-export default WeatherCard;
+export default WeatherCardItem;

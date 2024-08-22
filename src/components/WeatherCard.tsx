@@ -3,15 +3,15 @@ import WaterDropIcon from "@mui/icons-material/WaterDrop";
 import AirIcon from "@mui/icons-material/Air";
 import WbSunnyOutlinedIcon from "@mui/icons-material/WbSunnyOutlined";
 import DarkModeOutlinedIcon from "@mui/icons-material/DarkModeOutlined";
-import WeatherCardItem from "./WeatherCardItem";
 import { WeatherInfo } from "../types/weather.interface";
+import WeatherCardItem from "./WeatherCardItem";
 
 interface WeatherCardProps {
   weather: WeatherInfo | null;
 }
 
 export const WeatherCard: React.FC<WeatherCardProps> = ({ weather }) => (
-  <Container maxWidth="md" sx={{ mt: 8 }}>
+  <Container maxWidth="md" sx={{ mt: 8 }} data-testid="weather-card">
     <Typography sx={{ fontSize: 14 }} color="text.secondary" gutterBottom>
       Atualizado em {weather?.requestTime.toLocaleDateString("pt-BR")}{" "}
       {weather?.requestTime.toLocaleTimeString("pt-BR", {

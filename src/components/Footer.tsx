@@ -8,6 +8,7 @@ export const Footer: React.FC = () => (
     sx={{
       py: { xs: 4 },
     }}
+    data-testid="footer"
   >
     <Box
       sx={{

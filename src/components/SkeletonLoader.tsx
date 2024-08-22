@@ -8,7 +8,7 @@ import {
 } from "@mui/material";
 
 export const SkeletonLoader: React.FC = () => (
-  <Container maxWidth="md" sx={{ mt: 8 }}>
+  <Container maxWidth="md" sx={{ mt: 8 }} data-testid="skeleton-loader">
     <Typography
       sx={{ fontSize: 14 }}
       color="text.secondary"
