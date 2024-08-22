@@ -1,7 +1,7 @@
 import { WeatherInfo } from "../types/weather.interface";
 import { formatTime } from "../utils/weatherUtils";
 
-const apiKey = import.meta.env.VITE_OPENWEATHER_API_KEY;
+const API_KEY = import.meta.env.VITE_OPENWEATHER_API_KEY;
 
 interface OpenWeatherResponse {
   name: string;
@@ -12,7 +12,7 @@ interface OpenWeatherResponse {
     humidity: number;
   };
   weather: Array<{
-    main: "Rain" | "Clear" | "Clouds" | "Snow" | "Drizzle" | "Thunderstorm";
+    icon: string;
     description: string;
   }>;
   wind: {
@@ -49,13 +49,14 @@ class OpenWeatherService {
       const data: OpenWeatherResponse = await response.json();
 
       const requestTime = new Date();
+      const iconUrl = `https://openweathermap.org/img/wn/${data.weather[0].icon}@2x.png`;
 
       return {
         city: data.name ?? "-",
         temperature: data.main.temp.toFixed(1) ?? "-",
         temperatureMax: data.main.temp_max.toFixed(1) ?? "-",
         temperatureMin: data.main.temp_min.toFixed(1) ?? "-",
-        iconType: data.weather[0].main ?? "-",
+        iconUrl: iconUrl,
         description: data.weather[0].description ?? "-",
         humidity: data.main.humidity.toString() ?? "-",
         wind: data.wind.speed.toString() ?? "-",
@@ -71,5 +72,5 @@ class OpenWeatherService {
   }
 }
 
-const openWeatherService = new OpenWeatherService(apiKey);
+const openWeatherService = new OpenWeatherService(API_KEY);
 export default openWeatherService;

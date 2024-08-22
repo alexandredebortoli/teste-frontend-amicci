@@ -6,7 +6,7 @@ export interface WeatherInfo {
   description: string;
   city: string;
   country: string;
-  iconType: "Rain" | "Clear" | "Clouds" | "Snow" | "Drizzle" | "Thunderstorm";
+  iconUrl: string;
   wind: string;
   sunrise: string;
   sunset: string;

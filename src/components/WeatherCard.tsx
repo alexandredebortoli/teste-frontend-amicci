@@ -1,4 +1,11 @@
-import { Card, CardContent, Container, Grid, Typography } from "@mui/material";
+import {
+  Box,
+  Card,
+  CardContent,
+  Container,
+  Grid,
+  Typography,
+} from "@mui/material";
 import WbSunnyIcon from "@mui/icons-material/WbSunny";
 import WaterDropIcon from "@mui/icons-material/WaterDrop";
 import AirIcon from "@mui/icons-material/Air";
@@ -38,14 +45,24 @@ export const WeatherCard: React.FC<WeatherCardProps> = ({ weather }) => (
                   {weather?.temperature ? weather.temperature : "-"}°
                 </Typography>
                 <Typography color="text.secondary" align="center">
-                  Máx: {weather?.temperatureMax}° Min: {weather?.temperatureMin}
-                  °
+                  Máx:{weather?.temperatureMax}° Min:{weather?.temperatureMin}°
                 </Typography>
               </Grid>
-              <Grid item xs={6} md={3} alignContent={"center"}>
-                <Typography variant="h3" align="center">
-                  <WbSunnyIcon sx={{ fontSize: 48 }} />
-                </Typography>
+              <Grid
+                item
+                xs={6}
+                md={3}
+                alignContent={"center"}
+                justifyContent="center"
+                alignItems="center"
+              >
+                <Grid container justifyContent="center">
+                  <img
+                    src={weather?.iconUrl}
+                    alt={weather?.description}
+                    width={68}
+                  />
+                </Grid>
                 <Typography
                   color="text.secondary"
                   align="center"
