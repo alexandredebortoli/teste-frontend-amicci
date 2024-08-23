@@ -17,7 +17,7 @@ A weather forecasting app built with React, TypeScript, and Material UI. It uses
 npm install
 ```
 
-2. Create a .env file from .env.example and add your API keys.
+2. Create a `.env` file from `.env.example` and add your API keys.
 
 3. Start the development server:
 
@@ -38,3 +38,4 @@ npm run dev
 - OpenWeather API (Weather data)
 - Browser Geolocation (Current location)
 - Vercel hosting
+- Rollbar (Error Tracking)
