@@ -9,12 +9,18 @@ import { ErrorBoundary, Provider } from "@rollbar/react";
 import { rollbarConfig } from "./config/rollbarConfig";
 import { ErrorFallback } from "./components/ErrorFallback";
 
+function TestError() {
+  const a: any = null;
+  return a.hello();
+}
+
 function App() {
   const [weather, setWeather] = useState<WeatherInfo | null>(null);
   return (
     <>
       <Provider config={rollbarConfig}>
         <ErrorBoundary fallbackUI={ErrorFallback}>
+          <TestError />
           <Header />
           <WeatherForm setWeather={setWeather} />
           {weather ? <WeatherCard weather={weather} /> : <SkeletonLoader />}
