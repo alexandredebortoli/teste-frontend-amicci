@@ -25,6 +25,8 @@ npm install
 npm run dev
 ```
 
+> Note: to run tests use: `npm run test`
+
 ## Technologies
 
 - React
